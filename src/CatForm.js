@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     offset: theme.mixins.toolbar,
 }))
 
-function createData(name, calories, fat, carbs, protein, price) {
+function createData(name) {
     return {
         name,
         medicalRecord: [
@@ -53,7 +53,6 @@ function createData(name, calories, fat, carbs, protein, price) {
 
 function Row(props) {
     const {row} = props;
-
     return (
         <React.Fragment>
             <TableRow>
@@ -66,8 +65,8 @@ function Row(props) {
                             <TableBody>
                                 {row.medicalRecord.map((medicalRecordRow) => (
                                     <TableRow key={medicalRecordRow.name}>
-                                        <TableCell component="th" scope="row">
-                                            {medicalRecordRow.name}{medicalRecordRow.quantity}
+                                        <TableCell width="160px" component="th" scope="row">
+                                            {medicalRecordRow.name}<b>{medicalRecordRow.quantity}</b>
                                             <br/>
                                             {medicalRecordRow.remark}
                                         </TableCell>
@@ -107,10 +106,10 @@ const rows = [
     createData('Mega'),
     createData('Data'),
     createData('Giga'),
-    createData('Cat2'),
-    createData('Data'),
-    createData('Cat2'),
-    createData('Mega'),
+    createData('Cat5'),
+    createData('Data1'),
+    createData('Cat7'),
+    createData('Mega2'),
 ];
 
 function CollapsibleTable() {
